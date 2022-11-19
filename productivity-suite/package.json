@@ -9,10 +9,12 @@
 		"app/fragments/todo-lists",
 		"app/fragments/todos",
 		"app/fragments/news",
-		"app/legacy-app"
+		"app/legacy-app",
+		"app/legacy-app-nuxt-v2"
 	],
 	"scripts": {
 		"start": "node ./scripts/start-dev.js",
+		"start.nuxt": "node ./scripts/start-dev-nuxt.js",
 		"deploy": "npm run deploy --workspaces --if-present",
 		"build": "npm run build --workspaces"
 	},
