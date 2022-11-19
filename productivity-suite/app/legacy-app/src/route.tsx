@@ -1,6 +1,6 @@
 import { getBus } from "piercing-library";
 import { createContext,  useEffect } from "react";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const RouteContext = createContext<undefined>(undefined);
 

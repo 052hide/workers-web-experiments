@@ -54,4 +54,41 @@ const gateway = new PiercingGateway<Env>({
   },
 });
 
+
+async function isUserAuthenticated(request: Request) {
+  const currentUser = await getCurrentUser(request.headers.get("Cookie") || "");
+  return !!currentUser;
+}
+
+gateway.registerFragment({
+  fragmentId: "login",
+  prePiercingStyles: `
+    :not(piercing-fragment-outlet) > piercing-fragment-host {
+      position: absolute;
+      top: 10.45rem;
+      left: 1rem;
+      right: 1rem;
+    }
+
+    @media (max-width: 45rem) {
+      :not(piercing-fragment-outlet) > piercing-fragment-host {
+        top: 10.58rem;
+      }
+    }
+    @media (max-width: 35rem) {
+      :not(piercing-fragment-outlet) > piercing-fragment-host {
+        top: 13.06rem;
+      }
+    }
+    @media (max-width: 25rem) {
+      :not(piercing-fragment-outlet) > piercing-fragment-host {
+        top: 13.24rem;
+      }
+    }
+    `,
+  async shouldBeIncluded(request: Request) {
+    return !(await isUserAuthenticated(request));
+  },
+});
+
 export default gateway;
