@@ -169,6 +169,7 @@ export function Layout() {
       <Header />
       {isAuthenticated && <NavBar />}
       <main className="app-main">
+        <div>React</div>
         <Outlet />
       </main>
       <Footer />

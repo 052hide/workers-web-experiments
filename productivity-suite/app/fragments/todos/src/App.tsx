@@ -8,6 +8,7 @@ import { ListOfTodos } from "./components/ListOfTodos";
 import { ToggleAllTodosButton } from "./components/ToggleAllTodosButton";
 import { EnvContext } from "./env";
 import { TodoType } from "./todoType";
+import { HeadlessLink } from './components/headless/HeadlessLink'
 
 const App: React.FC<{
   todoList: TodoList | null;
@@ -85,6 +86,7 @@ const App: React.FC<{
 
   return (
     <div className="todo-mvc-wrapper" ref={ref}>
+      <HeadlessLink href="/news">To News</HeadlessLink>
       <section className="todo-mvc">
         <Header
           todos={todos}
